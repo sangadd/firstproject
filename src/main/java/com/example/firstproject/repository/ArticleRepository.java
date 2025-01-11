@@ -3,6 +3,8 @@ package com.example.firstproject.repository;
 import com.example.firstproject.entity.Article;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.ArrayList;
+
 /*
 * 리파지터리는 사용자가 직접 구현할 수도 있지만 JPA에서 제공하는 리파지터리 인스페이스를 활용해 만들 수도 있다.
 * JPA에서 제공하는 인터페이스인 CrudRepository를 상속해 엔티티를 관리(생성, 조회, 수정, 삭제)할 수 있다.
@@ -12,4 +14,7 @@ import org.springframework.data.repository.CrudRepository;
 */
 
 public interface ArticleRepository extends CrudRepository<Article, Long> {
+
+    @Override
+    ArrayList<Article> findAll();
 }

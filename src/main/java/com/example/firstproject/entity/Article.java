@@ -5,9 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @AllArgsConstructor // Article() 생성자를 대체하는 어노테이션 추가
+@NoArgsConstructor // 기본 생성자 추가 에노테이션
 @ToString           // toString() 메서드를 대체하는 어노테이션 추가
 @Entity
 public class Article {
