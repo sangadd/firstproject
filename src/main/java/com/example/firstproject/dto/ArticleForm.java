@@ -7,6 +7,7 @@ import lombok.ToString;
 @AllArgsConstructor  // 이 어노테이션 추가했으니 생성자 코드 삭제
 @ToString
 public class ArticleForm {
+    private Long id;
     // 입력 폼에서 제목과 내용을 전송할 예정이니 DTO에도 필드 2개가 필요함
     private String title; // 제목을 받을 필드
     private String content;  // 내용을 받을 필드
@@ -34,6 +35,6 @@ public class ArticleForm {
 
     // 이 메서드는 DTO인 form 객체를 엔티티 객체로 변환하는 역할
     public Article toEntity() {
-        return new Article(null, title, content); // Article 엔티티의 생성자 입력 양식에 맞게 작성
+        return new Article(id, title, content); // Article 엔티티의 생성자 입력 양식에 맞게 작성
     }
 }
