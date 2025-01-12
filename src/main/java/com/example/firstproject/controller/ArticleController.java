@@ -38,7 +38,8 @@ public class ArticleController {
         // 2, 리파지터리로 엔티티를 DB에 저장
         Article saved = articleRepository.save(article);  // articel 엔티티를 저장해 saved 객체에 반환
         log.info(saved.toString()); // @Slf4j 어노테이션 추가하고 로깅 코드 추가
-        return "";
+        return "redirect:/articles/" + saved.getId();
+
     }
 
     @GetMapping("/articles/{id}") // 컨트롤러에서 URL 변수를 사용할 때는 중괄호 하나만 씀

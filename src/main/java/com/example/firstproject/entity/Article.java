@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -12,6 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor // 기본 생성자 추가 에노테이션
 @ToString           // toString() 메서드를 대체하는 어노테이션 추가
 @Entity
+@Getter
 public class Article {
     @Id                     // 엔티티의 대푯값 지정
     @GeneratedValue         // 자동 생성 기능 추가(숫자가 자동으로 매겨짐)
@@ -22,6 +24,11 @@ public class Article {
 
     @Column                 // content 필드 선언, DB 테이블의 content 열과 연결됨
     private String content;
+
+    // 룸복으로 @Getter 어노테이션 추가하면 이 코드는 삭제해도 됨
+//    public Long getId() { // 주의! 데이터 타입을 String -> Long로 변경
+//        return id;
+//    }
 
 /*    public Article(Long id, String title, String content) {
         this.id = id;
