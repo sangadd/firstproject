@@ -112,4 +112,17 @@ public class ArticleController {
         // 3. 결과 페이지로 리다이렉트하기
         return "redirect:/articles";
     }
+
+    /*
+    * delete() 메서드 설명
+    클라이언트가 특정 게시글의 삭제 요청을 하면 컨트롤러의 delete() 메서드에서 @GetMapping 으로 받는다.
+    delete() 메서드가 삭제 대상을 찾으려면 대푯값인 id가 필요한데 이때 @PathVariable 어노테이션을 사용한다.
+    @PathVariable 어노테이션은 @GetMapping 의 URL에서 중괄호에 둘러싸인 값을 매개변수로 가져온다.
+    리파지터리는 이렇게 가져온 ID로 DB에서 삭제 대상을 찾고 리파지터리가 제공하는 delete() 메서드로 데이터를 삭제한다.
+    이때 db 내부에서 delete 라는 sql 문이 자동으로 수행된다
+    *
+    삭제 작업이 끝나면 결과 페이지로 리다이렉트함
+    삭제됐다는 메시지도 함께 출력하는데 이를 위해 RedirectAttributes 객체의 addFlashAttribute() 메서드를 이용한다.
+    addFlashAttribute() 메서드는 리다이렉트되는 시점에 사용할 휘발성 데이터를 등록한다.
+    */
 }
