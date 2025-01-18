@@ -8,8 +8,9 @@ IT 기기 발전에 따라 지금도 수많은 클라이언트가 만들어지�
 웹 브라우저뿐만 아니라 어떤 기기가 와도 기기에 맞는 뷰 페이지를 응답해야한다.     
 
 그런데 이런 기기 들이 앞으로 끊없이 나올텐데 그떄마다 서버가 일일이 대응하기란 쉽지 않다.     
+
 좋은 방법이 없을까?    
-바로 REST API 사용하장     
+바로 **REST API** 사용하자 !    
 
 `REST API (Representational State Transfer API)`   
 서버의 자원을 클라이언트에 구애받지 않고 사용할 수 있게 하는 설계 방식   
@@ -33,12 +34,12 @@ REST API 방식에서는 HTTP 요청에 따라 응답으로 서버의 자원을 
 }
 ```
 
-- 키와 값으로 구성된 정렬되지 않은 속성의 집합이다.   
-- 키는 문자열이므로 항상 큰따옴표로 감싸고 값은 문자열인 경우에만 큰따옴표로 감싼다.   
+> 키와 값으로 구성된 정렬되지 않은 속성의 집합이다.  
+> 키는 문자열이므로 항상 큰따옴표로 감싸고 값은 문자열인 경우에만 큰따옴표로 감싼다.   
 
 
-- 연습용 REST API 서버   
-- https://jsonplaceholder.typicode.com/  
+**연습용 REST API 서버**   
+`https://jsonplaceholder.typicode.com/`  
 
 여기 들어가보면   
 
@@ -47,7 +48,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
       .then(response => response.json())
       .then(json => console.log(json))
 ```
-'https://jsonplaceholder.typicode.com/todos/1' 이게 HTTP 요청 코드고   
+`'https://jsonplaceholder.typicode.com/todos/1'` 이게 HTTP 요청 코드고   
 
 - 결과  
 ```
@@ -58,10 +59,9 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
   "completed": false
 }
 ```
-이게 JSON 데이터 응답임   
+이게 JSON 데이터 응답  
 
-그럼 다른 예시   
-새 글 등록하는 예   
+**새 글 등록하는 예**   
 ```
 fetch('https://jsonplaceholder.typicode.com/posts', {
   method: 'POST',
@@ -87,11 +87,11 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
   userId: 1
 }
 ```
-여기서는 POST 메서드를 통해 지정된 URL로 요청을 보내면 게시판에 새 글이 등록되고 새로 생성된 데이터는 JSON 형태로 반환된다는 것만 기억해     
+여기서는 POST 메서드를 통해 지정된 URL로 요청을 보내면 게시판에 새 글이 등록되고 새로 생성된 데이터는 JSON 형태로 반환된다는 것만 기억하자 !   
 
 - method가 put과 patch면   
-- **PUT** : 기존 데이터를 전부 새 내용으로 변경, 만약 기존 데이터가 없다면 새로 생성한다.   
-- **PATCH** : 기존 데이터 중에서 일부만 새 내용으로 변경한다.   
+> **PUT** : 기존 데이터를 전부 새 내용으로 변경, 만약 기존 데이터가 없다면 새로 생성한다.     
+> **PATCH** : 기존 데이터 중에서 일부만 새 내용으로 변경한다.   
 
 ------ 
 
