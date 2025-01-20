@@ -22,6 +22,16 @@ public class Article {
     @Column                 // content 필드 선언, DB 테이블의 content 열과 연결됨
     private String content;
 
+    // 이 메서드는 수정할 내용이 있을 때만 동작하는 메서드!
+    public void patch(Article article) {
+        if (article.title != null){
+            this.title = article.title;
+        }
+        if (article.content != null){
+            this.content = article.content;
+        }
+    }
+
     // 룸복으로 @Getter 어노테이션 추가하면 이 코드는 삭제해도 됨
 //    public Long getId() { // 주의! 데이터 타입을 String -> Long로 변경
 //        return id;
