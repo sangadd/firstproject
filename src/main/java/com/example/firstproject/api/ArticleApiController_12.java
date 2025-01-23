@@ -2,7 +2,6 @@ package com.example.firstproject.api;
 
 import com.example.firstproject.dto.ArticleForm;
 import com.example.firstproject.entity.Article;
-import com.example.firstproject.repository.ArticleRepository;
 import com.example.firstproject.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +13,10 @@ import java.util.List;
 
 @Slf4j // 로그 찍을 수 있는 어노테이션
 @RestController
-public class ArticleApiController {
+public class ArticleApiController_12 {
 
     @Autowired
     private ArticleService articleService;
-
-    private ArticleRepository articleRepository;
-
-
-    // 12장에서 다 주석처리 하라고 해서 주석처리하고 시작
 
     // GET
     @GetMapping("/api/articles") // 1. url 요청 접수!
@@ -75,5 +69,4 @@ public class ArticleApiController {
                 ResponseEntity.status(HttpStatus.OK).body(createdList) : // 정상 응답
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
-
 }
