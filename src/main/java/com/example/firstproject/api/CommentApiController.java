@@ -35,7 +35,7 @@ public class CommentApiController {
     }
 
     // 2. 댓글 생성
-    @GetMapping("/api/articles/{articleId}/comments")
+    @PostMapping("/api/articles/{articleId}/comments")
     public ResponseEntity<CommentDto> create(@PathVariable Long articleId,
                                              @RequestBody CommentDto dto) {
         // 서비스에 위임
