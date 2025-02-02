@@ -3,13 +3,14 @@
         <div class="card m-2" id="comments-{{id}}"> <!-- 댓글 카드 만들고 id 부여-->
             <div class="card-header">
                 {{nickname}} <!-- 닉네임 보여주기 -->
-                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                        data-bs-target="#comment-edit-modal" data-bs-id="{{id}}"
+                <button type="button"
+                        class="btn btn-sm btn-outline-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#comment-edit-modal"
+                        data-bs-id="{{id}}"
                         data-bs-nickname="{{nickname}}"
                         data-bs-body="{{body}}"
-                        data-bs-article-id="{{articleId}}">
-                    수정
-                </button>
+                        data-bs-article-id="{{articleId}}">수정</button>
             </div>
             <div class="card-body">
                 {{body}} <!-- 댓글 본문 보여주기 -->
@@ -23,32 +24,33 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">댓글 수정</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title"
+                    id="exampleModalLabel">댓글 수정</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- 댓글 수정 폼 -->
                 <form>
                     <!-- 닉네임 입력 -->
                     <div class="mb-3">
-                        <label class="form-label">닉네임</label>
+                        <label for="edit-comment-nickname" class="form-label">닉네임</label>
                         <input type="text" class="form-control" id="edit-comment-nickname">
                     </div>
                     <!-- 댓글 본문 입력 -->
                     <div class="mb-3">
-                        <label class="form-label">댓글 내용</label>
-                        <textarea type="text" class="form-control" rows="3"
+                        <label for="edit-comment-body" class="form-label">댓글 내용</label>
+                        <textarea class="form-control" rows="3"
                                   id="edit-comment-body"></textarea>
                     </div>
                     <!-- 히든 인풋 -->
-                    {{#article}}
-                        <input type="hidden" id="edit-comment-id">
-                        <input type="hidden" id="edit-comment-article-id">
-                    {{/article}}
+                    <input type="hidden" id="edit-comment-id">
+                    <input type="hidden" id="edit-comment-article-id">
                     <!-- 전송 버튼 -->
                     <button type="button" class="btn btn-primary"
-                            id="comment-update-btn">수정 완료
-                    </button>
+                            id="comment-update-btn">수정 완료</button>
                 </form>
             </div>
         </div>
@@ -78,7 +80,6 @@
             document.querySelector("#edit-comment-article-id").value = articleId;
         });
     }
-
     {
         // 수정 완료 버튼 선택
         const commentUpdateBtn = document.querySelector("#comment-update-btn");
@@ -91,7 +92,7 @@
                 body: document.querySelector("#edit-comment-body").value,
                 article_id: document.querySelector("#edit-comment-article-id").value
             };
-
+            console.log(comment);
             // 수정 REST API 호출
             const url = "/api/comments/" + comment.id;
             fetch(url, {
